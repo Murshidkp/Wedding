@@ -770,14 +770,14 @@ footer{background:var(--deep);padding:60px 20px;text-align:center;border-top:1px
         <div class="form-group">
           <label class="form-label">Number of Guests Attending</label>
           <div class="guest-stepper">
-            <button class="stepper-btn" onclick="changeGuest(-1)" type="button">−</button>
+            <button class="stepper-btn" onclick="changeGuest(-0)" type="button">−</button>
             <div class="stepper-display">
-              <span id="guest-count-display">1</span>
+              <span id="guest-count-display">0</span>
               <small>guest(s)</small>
             </div>
             <button class="stepper-btn" onclick="changeGuest(1)" type="button">+</button>
           </div>
-          <input type="hidden" id="rsvp-guests" value="1">
+          <input type="hidden" id="rsvp-guests" value="0">
         </div>
         <div class="form-group">
           <label class="form-label">A message for the couple (optional)</label>
@@ -868,24 +868,7 @@ footer{background:var(--deep);padding:60px 20px;text-align:center;border-top:1px
 // ══════════════════════════════════════════
 //  RANDOM THEME — changes every page open
 // ══════════════════════════════════════════
-const THEMES = [
-  {
-    name: 'Champagne Blush',
-    '--ivory':'#FFF8F7',
-    '--cream':'#FFEFEA',
-    '--gold':'#C48A78',
-    '--gold2':'#D9A08F',
-    '--gold3':'#EDB7A7',
-    '--deep':'#2A1618',
-    '--mid':'#402124',
-    '--warm':'#5A3034',
-    '--soft':'#74444A',
-    '--muted':'#B57A82',
-    '--muted2':'#D7A7AE',
-    '--blush':'#FFE5E8',
-    splash1:'#402124',
-    splash2:'#2A1618'
-  }, 
+const THEMES = [ 
   {
     name: 'Emerald & Gold',
     '--ivory':'#F4FDF7', '--cream':'#E6F7EC',
@@ -1034,7 +1017,7 @@ function enterSite() {
 }
 
 // ── GUEST STEPPER ──
-let guestCount = 1;
+let guestCount = 0;
 function changeGuest(delta) {
   guestCount = Math.max(1, Math.min(20, guestCount + delta));
   const display = document.getElementById('guest-count-display');
