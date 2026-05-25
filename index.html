@@ -1019,7 +1019,7 @@ function enterSite() {
 // ── GUEST STEPPER ──
 let guestCount = 0;
 function changeGuest(delta) {
-  guestCount = Math.max(1, Math.min(20, guestCount + delta));
+  guestCount = Math.max(0, Math.min(20, guestCount + delta));
   const display = document.getElementById('guest-count-display');
   display.textContent = guestCount;
   display.style.transform = 'scale(1.3)';
